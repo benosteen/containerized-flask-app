@@ -20,7 +20,7 @@ RUN apt-get install -y iputils-ping python3-pip python3-dev python3-venv \
 
 WORKDIR /opt/$PROJECTNAME
 
-ADD --chown=appuser:appuser app tests requirements.txt ./
+ADD --chown=appuser:appuser app requirements.txt ./
 
 USER appuser
 
