@@ -19,7 +19,8 @@ Local usage
       ............ [other download output removed] ..............
     Installing collected packages: Werkzeug, itsdangerous, MarkupSafe, Jinja2, click, Flask, urllib3, certifi, idna, chardet, requests
     Successfully installed Flask-1.0.2 Jinja2-2.10.1 MarkupSafe-1.1.1 Werkzeug-0.15.2 certifi-2019.3.9 chardet-3.0.4 click-7.0 idna-2.8 itsdangerous-1.1.0 requests-2.21.0 urllib3-1.24.2
-    (venv) [local] $ 
+
+    (venv) [local] $ FLASK_APP=app/app.py python -m flask run
      * Serving Flask app "app/app.py"
      * Environment: production
        WARNING: Do not use the development server in a production environment.
