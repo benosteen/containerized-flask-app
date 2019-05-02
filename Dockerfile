@@ -22,9 +22,15 @@ WORKDIR /opt/$PROJECTNAME
 
 ADD --chown=appuser:appuser app requirements.txt ./
 
+# Testing
+ADD --chown=appuser:appuser tests requirements-test.txt ./
+
 USER appuser
 
 RUN python -m pip install --user -r requirements.txt
+
+# Testing
+RUN python -m pip install --user -r requirements-test.txt
 
 ENTRYPOINT ["/usr/local/sbin/entrypoint.sh"]
 
