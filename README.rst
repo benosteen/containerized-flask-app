@@ -33,13 +33,35 @@ Local usage
 **Developing the application**::
 
     (Create the venv and install the base requirements.txt as above)
-    (venv) [local] $ pip install -r requirements-dev.txt
+    (venv) [local] $ pip install -r requirements-dev.txt    # only need to install deps once
+
+**Testing the application**::
+
+    (Create the venv and install the base requirements.txt as above)
+    (venv) [local] $ pip install -r requirements-test.txt    # only need to install deps once
+    (venv) [local] $ python -m pytest tests
+
+
+Local (docker-compose) usage
+----------------------------
+
+- Pre-requisites: ``docker`` and ``docker-compose``
+
+Running the application::
+
+    [local] $ docker-compose up -d
+
+If this is the first time you run this command, an image will be built for the helloworld app using its Dockerfile.
+
+(Re)Building the applications image::
+
+    [local] $ docker-compose build helloworld     # Run this if code changes are made to the app to ensure the image is built
 
 
 Containerization
 ----------------
 
-**What does the ``Dockerfile`` do?**
+**What does the Dockerfile do?**
 
 - Starts with a basic OS image (``ubuntu:18.04`` in this case)
 - Sets some core envirnoment variables such as locale
@@ -51,7 +73,7 @@ Containerization
 - installs the python requirements for the app from ``requirements.txt``
 - Sets the entrypoint to be the entrypoint script
 
-**What does the ``docker-compose.yml`` file do?**
+**What does the docker-compose.yml file do?**
 
 Creates two ``services``, the ``helloworld`` service and an ``nginx`` container. The ``helloworld`` application is a
 web application, and as a matter of good practice, the web server should not be run as a privileged user and certainly
